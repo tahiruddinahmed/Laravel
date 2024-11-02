@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Models\Task;
 
 Route::get('/', function() {
-    return redirect()->route('task.index');
+    return redirect()->route('tasks.index');
 });
 
 Route::get( '/tasks', function ()  {
@@ -16,7 +16,7 @@ Route::get( '/tasks', function ()  {
     ]);
 })->name('tasks.index');
 
-Route::view('/tasks/create', 'create');
+Route::view('/tasks/create', 'create')->name('tasks.create');
 
 Route::get('/tasks/{id}', function($id)  {
     $task = \App\Models\Task::findOrFail($id);
@@ -37,8 +37,6 @@ Route::post('/tasks', function(Request $request) {
     // dd - dump and die
     dd($request->all());
 })->name('tasks.store');
-
-
 
 // Route Fallback
 Route::fallback(function() {
