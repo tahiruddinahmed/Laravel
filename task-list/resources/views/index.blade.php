@@ -14,6 +14,6 @@
     @endforelse
 
     <div style="margin-top: 1rem">
-        <a href="{{ route('tasks.test') }}">Test Form</a>
+        <a href="{{ route('tasks.create') }}">Add Task</a>
     </div>
 @endsection
