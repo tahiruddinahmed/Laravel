@@ -4,10 +4,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Task;
 
+/**
+ * Redirect the '/' page to the tasks.index page
+ */
 Route::get('/', function() {
     return redirect()->route('tasks.index');
 });
 
+/**
+ * Home page
+ */
 Route::get( '/tasks', function ()  {
     $tasks = Task::latest()->get();
 
@@ -16,8 +22,14 @@ Route::get( '/tasks', function ()  {
     ]);
 })->name('tasks.index');
 
+/**
+ * Show to Task Form
+ */
 Route::view('/tasks/create', 'create')->name('tasks.create');
 
+/**
+ * Show single Task page using Task $id
+ */
 Route::get('/tasks/{id}', function($id)  {
     $task = Task::findOrFail($id);
 
@@ -49,16 +61,11 @@ Route::post('/tasks', function(Request $request) {
 
     $task->save();
 
-    return redirect()->route('tasks.show', ['id' => $task->id]);
+    return redirect()->route('tasks.show', ['id' => $task->id])->with('success', 'Task created successfully!');
 })->name('tasks.store');
  
 // Route Fallback
 Route::fallback(function() {
     return 'Still got somewhere';
 });
-
-// GET - read data, fetch documents
-// POST - Store new data, send forms. POST will generally create something on the server. 
-// PUT - modify an existing thing
-// DELETE - delete data
 
