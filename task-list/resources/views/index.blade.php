@@ -1,6 +1,7 @@
 @extends('Layouts.app')
 
-@section('title', 'The list of tasks')
+@section('title', 'Laravel Project 1 - Task List App')
+@section('heading', 'The list of tasks')
 
 
 @section('content')

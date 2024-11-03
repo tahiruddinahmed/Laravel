@@ -1,6 +1,7 @@
 @extends('Layouts.app')
 
-@section('title', $task->title)
+@section('title', $task->title .' - Task List Application')
+@section('heading', $task->title)
 
 @section('content')
 {{-- <h1>{{ $task->title }}</h1> --}}
@@ -12,4 +13,8 @@
 
 <p>{{ $task->created_at }}</p>
 <p>{{ $task->updated_at }}</p>
+
+<div style="margin-top=1rem;">
+    <a href="{{route('tasks.edit', ['id' => $task->id])}}">Edit Task</a>
+</div>
 @endsection
