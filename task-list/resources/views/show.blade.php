@@ -15,6 +15,6 @@
 <p>{{ $task->updated_at }}</p>
 
 <div style="margin-top=1rem;">
-    <a href="{{route('tasks.edit', ['id' => $task->id])}}">Edit Task</a>
+    <a href="{{route('tasks.edit', ['task' => $task->id])}}">Edit Task</a>
 </div>
 @endsection
