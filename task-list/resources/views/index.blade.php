@@ -1,24 +1,29 @@
 @extends('Layouts.app')
 
 @section('title', 'Laravel Project 1 - Task List App')
-@section('heading', 'The list of tasks')
+@section('heading', 'The List Of Tasks')
 
 
 @section('content')
-    <di>
-        <a href="{{ route('tasks.create') }}">Add Task</a>
-    </div>
+    <nav class="mb-5">
+        <a href="{{ route('tasks.create') }}" class="btn-primary"
+        >Add New Task</a>
+    </nav>
     @forelse($tasks as $task)
-        <div>
-            {{-- <a href="/{{ $task->id }}">{{ $task->title }}</a> --}}
-            <a href="{{ route('tasks.show', ['task' => $task->id]) }}">{{ $task->title }}</a>
-        </div>
+        <a href="{{ route('tasks.show', ['task' => $task->id]) }}" class="block">
+            <div class="p-2 border rounded-md mb-2 cursor-pointer">
+                {{-- <a href="/{{ $task->id }}">{{ $task->title }}</a> --}}
+                <span @class(['font-medium', 'line-through' => $task->completed])>
+                    {{ $task->title }}
+                </span>
+            </div>
+        </a>
     @empty
         <div>There are no tasks!</div>
     @endforelse
 
     @if ($tasks->count())
-        <nav>
+        <nav class="mt-5">
             {{ $tasks->links() }}
         </nav>
     @endif
