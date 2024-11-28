@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Book;
 
 Route::get('/', function () {
-    return view('welcome');
+    return "Hello There";
 });

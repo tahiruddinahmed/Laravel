@@ -9,6 +9,8 @@ class Review extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['review', 'rating'];
+
     /**
      * Review belongs to a book
      *
