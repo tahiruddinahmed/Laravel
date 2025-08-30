@@ -13,7 +13,16 @@
         <ul class="flex space-x-4">
             <li><a href="{{ route('about') }}" class="text-gray-600 hover:text-gray-800">About Us</a></li>
             <li><a href="{{ route('contact') }}" class="text-gray-600 hover:text-gray-800">Contact</a></li>
-            <li><a href="{{ route('login') }}" class="text-gray-600 hover:text-gray-800">Login/Register</a></li>
+            @guest
+                <li><a href="{{ route('login') }}" class="text-gray-600 hover:text-gray-800">Login/Register</a></li>
+            @endguest
+
+            @auth
+                <form method="post" action="/logout">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            @endauth
         </ul>
     </nav>
 </header>

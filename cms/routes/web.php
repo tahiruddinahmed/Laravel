@@ -11,7 +11,7 @@ Route::post('/register', [RegisterUserController::class, 'store']);
 
 Route::get('/login', [SessionController::class, 'create'])->name('login');
 Route::post('/login', [SessionController::class, 'login']);
-
+Route::post('/logout', [SessionController::class, 'destroy']);
 // group route 
 Route::controller(PostController::class)->group(function(){
     Route::get('/', 'index')->name('index');

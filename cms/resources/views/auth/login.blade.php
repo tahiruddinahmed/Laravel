@@ -3,15 +3,18 @@
 
     <div class="bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-sm border border-gray-700">
         <h2 class="text-2xl font-bold text-center mb-6 text-white">Log In</h2>
+        <x-form-error name="login"/>
         <form method="post" action="/login">
           @csrf
             <div class="mb-4">
                 <x-form-label for="email">Email</x-form-label>
-                <x-form-input type="email" id="email" name="email" placeholder="Email Address"></x-form-input>
+                <x-form-input type="email" id="email" name="email" placeholder="Email Address" :value="old('email')" />
+                <x-form-error name="email" />
             </div>
             <div class="mb-4">
                 <x-form-label for="password">Password</x-form-label>
-                <x-form-input type="password" id="password" name="password" placeholder="************"></x-form-input>
+                <x-form-input type="password" id="password" name="password" placeholder="************" />
+                <x-form-error name="password" />
             </div>
             <div class="flex items-center justify-between">
                 <button type="submit"

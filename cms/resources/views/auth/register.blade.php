@@ -5,19 +5,23 @@
             @csrf
             <div class="mb-4">
                 <x-form-label for="name">Name</x-form-label>
-                <x-form-input type="text" id="name" name="name" placeholder="Enter Full name"></x-form-input>
+                <x-form-input type="text" id="name" name="name" placeholder="Enter Full name" :value="old('name')"/>
+                <x-form-error name="name" />
             </div> 
             <div class="mb-4">
                 <x-form-label for="email">Email</x-form-label>
-                <x-form-input type="email" id="email" name="email" placeholder="Email Address"></x-form-input>
+                <x-form-input type="email" id="email" name="email" placeholder="Email Address" :value="old('email')"></x-form-input>
+                <x-form-error name="email" />
             </div>
             <div class="mb-4">
                 <x-form-label for="password">Password</x-form-label>
                 <x-form-input type="password" id="password" name="password" placeholder="************"></x-form-input>
+                <x-form-error name="password" />
             </div>
             <div class="mb-6">
                 <x-form-label for="password_confirmation">Confirm Password</x-form-label>
                 <x-form-input type="password" id="password_confirmation" name="password_confirmation" placeholder="************"></x-form-input>
+                <x-form-error name="password_confirmation" />
             </div>
             <div class="flex items-center justify-between">
                 <button type="submit"
