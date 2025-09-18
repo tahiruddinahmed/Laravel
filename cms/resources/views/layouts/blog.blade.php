@@ -18,6 +18,7 @@
             @endguest
 
             @auth
+                <a href="{{ route('post.create') }}">Create a post</a>
                 <form method="post" action="/logout">
                     @csrf
                     <button type="submit">Logout</button>

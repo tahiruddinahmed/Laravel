@@ -32,7 +32,7 @@
         <ul class="space-y-2">
         @forelse ($categories as $category)
             <li>
-                <a href="/?category_id={{ $category->id }}" class="text-gray-600 hover:text-gray-800">
+                <a href="?category_id={{ $category->id }}" class="text-gray-600 hover:text-gray-800">
                     {{ $category->name }}
                 </a>
             </li>
